@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Landing from './components/Landing.jsx';
 import Result from './components/Result.jsx';
 
+
 function App() {
   return (
     <Router>
