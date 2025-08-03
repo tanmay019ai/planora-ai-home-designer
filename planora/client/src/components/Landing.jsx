@@ -5,16 +5,27 @@ import bg from '../assets/bg.jpg';
 
 const Landing = () => {
   const [prompt, setPrompt] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
+    if (!prompt.trim()) return;
+
+    setLoading(true);
+
     try {
+      console.log('Submitting prompt:', prompt);
+      // Send prompt to your own backend
       const res = await axios.post('http://localhost:5000/generate', { prompt });
       const modelUrl = res.data.modelUrl;
 
+      // Redirect to result page with model URL
       navigate('/result', { state: { modelUrl } });
     } catch (err) {
-      console.error('Error sending prompt:', err);
+      console.error('Error generating model:', err);
+      alert('Failed to generate model. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -58,9 +69,10 @@ const Landing = () => {
           />
           <button
             onClick={handleSubmit}
-            className="w-10 h-10 flex items-center justify-center rounded-full text-2xl text-black "
+            disabled={loading}
+            className={`w-10 h-10 flex items-center justify-center rounded-full text-2xl text-black transition-all ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
           >
-            →
+            {loading ? '⏳' : '→'}
           </button>
         </div>
       </div>
