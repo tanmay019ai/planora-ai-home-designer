@@ -4,7 +4,7 @@ import axios from 'axios';
 import bg from '../assets/bg.jpg';
 import Flow from './Flow.jsx';
 import { motion } from 'framer-motion';
-import WhyPlanora from './WhyPlanora.jsx'; // Import the WhyPlanora component
+import WhyPlanora from './WhyPlanora.jsx';
 import Contact from './Contact.jsx';
 
 const phrases = [
@@ -20,9 +20,9 @@ const Landing = () => {
   const [loopIndex, setLoopIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
-  // Typing placeholder animation
   useEffect(() => {
     const currentText = phrases[loopIndex % phrases.length];
     let typingSpeed = isDeleting ? 40 : 100;
@@ -66,9 +66,9 @@ const Landing = () => {
 
   return (
     <>
-      <section id='home'>
+      <section id="home">
         <div
-          className="w-full min-h-screen text-white px-4 relative"
+          className="w-full min-h-screen text-white px-4 sm:px-6 md:px-10 relative"
           style={{
             backgroundImage: `url(${bg})`,
             backgroundSize: 'cover',
@@ -77,18 +77,18 @@ const Landing = () => {
           }}
         >
           {/* HEADER */}
-          <header className="fixed top-0 left-0 w-full bg-black/70 text-white flex items-center px-10 py-4 z-50 backdrop-blur-md">
-            <div className="text-3xl font-quint tracking-wide">PLANORA</div>
+          <header className="fixed top-0 left-0 w-full bg-black/70 text-white flex items-center justify-between px-6 sm:px-10 py-4 z-50 backdrop-blur-md">
+            <div className="text-2xl sm:text-3xl font-quint tracking-wide">PLANORA</div>
 
-            {/* Animated Nav */}
+            {/* Desktop Nav */}
             <motion.nav
-              className="ml-auto pl-32 flex gap-14 text-xl font-quint tracking-wide"
+              className="hidden md:flex gap-8 lg:gap-14 text-sm sm:text-base lg:text-xl font-quint tracking-wide"
               initial="hidden"
               animate="visible"
               variants={{
                 visible: {
-                  transition: { staggerChildren: 0.1 }
-                }
+                  transition: { staggerChildren: 0.1 },
+                },
               }}
             >
               {[
@@ -102,7 +102,7 @@ const Landing = () => {
                   href={href}
                   variants={{
                     hidden: { opacity: 0, y: -10 },
-                    visible: { opacity: 1, y: 0 }
+                    visible: { opacity: 1, y: 0 },
                   }}
                   whileHover={{ scale: 1.08, color: '#B5FFF9' }}
                   whileTap={{ scale: 0.95 }}
@@ -112,15 +112,53 @@ const Landing = () => {
                 </motion.a>
               ))}
             </motion.nav>
+
+            {/* Mobile Hamburger */}
+            <div className="md:hidden">
+              <button onClick={() => setMenuOpen(true)} className="text-3xl focus:outline-none">
+                ☰
+              </button>
+            </div>
           </header>
 
+          {/* Mobile Sidebar */}
+          <motion.div
+            className="fixed top-0 right-0 w-64 h-full bg-[#000000c8] text-white z-[999] flex flex-col p-6 shadow-lg md:hidden "
+            initial={{ x: '100%' }}
+            animate={{ x: menuOpen ? 0 : '100%' }}
+            transition={{ type: 'tween', duration: 0.3 }}
+          >
+            <div className="flex justify-between items-center mb-8">
+              <h2 className="text-2xl font-bold">Menu</h2>
+              <button onClick={() => setMenuOpen(false)} className="text-3xl font-light">×</button>
+            </div>
+
+            <nav className="flex flex-col gap-6 text-lg font-medium">
+              {[
+                { text: 'HOME', href: '#home' },
+                { text: 'FLOW', href: '#flow' },
+                { text: 'WHY PLANORA?', href: '#why' },
+                { text: 'CONTACT', href: '#contact' },
+              ].map(({ text, href }) => (
+                <a
+                  key={text}
+                  href={href}
+                  onClick={() => setMenuOpen(false)}
+                  className="hover:text-[#B5FFF9] transition-all"
+                >
+                  {text}
+                </a>
+              ))}
+            </nav>
+          </motion.div>
+
           {/* CONTENT */}
-          <div className="w-full min-h-screen flex flex-col items-center justify-center pt-28">
+          <div className="w-full min-h-screen flex flex-col items-center justify-center text-center pt-28 sm:pt-32 md:pt-36">
             <motion.h1
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
-              className="text-4xl md:text-6xl font-bold stroke-text text-center font-orbitron"
+              className="text-3xl sm:text-4xl md:text-6xl font-bold stroke-text font-orbitron"
             >
               IMAGINE DESCRIBE BUILD
             </motion.h1>
@@ -129,7 +167,7 @@ const Landing = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
-              className="text-lg md:text-2xl mt-4 text-outline font-semibold drop-shadow-md tracking-wide"
+              className="text-base sm:text-lg md:text-2xl mt-4 font-semibold drop-shadow-md tracking-wide text-outline"
             >
               Where AI builds and you design
             </motion.p>
@@ -138,21 +176,21 @@ const Landing = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="mt-8 w-full max-w-xl flex items-center justify-between border border-[#1D3D33] rounded-full bg-white/80 shadow-md px-4 py-2"
+              className="mt-8 w-full max-w-md sm:max-w-lg flex items-center justify-between border border-[#1D3D33] rounded-full bg-white/80 shadow-md px-4 py-2"
             >
               <input
                 type="text"
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
                 placeholder={placeholder}
-                className="flex-1 text-[17px] tracking-[0.05em] font-serif text-[#45514B] bg-transparent placeholder-[#45514B] placeholder-opacity-80 outline-none pr-4"
+                className="flex-1 text-sm sm:text-base md:text-[17px] tracking-[0.05em] font-serif text-[#45514B] bg-transparent placeholder-[#45514B] placeholder-opacity-80 outline-none pr-4"
               />
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleSubmit}
                 disabled={loading}
-                className={`w-10 h-10 flex items-center justify-center rounded-full text-2xl text-black transition-all ${
+                className={`w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full text-xl sm:text-2xl text-black transition-all ${
                   loading ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
               >
@@ -163,12 +201,10 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* FLOW Section Below */}
+      {/* Sections */}
       <Flow />
-      {/* Why Planora Section Below */}
       <WhyPlanora />
-      <Contact/>
-      
+      <Contact />
     </>
   );
 };

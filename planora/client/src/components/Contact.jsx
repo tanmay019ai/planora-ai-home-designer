@@ -1,21 +1,32 @@
 import React from "react";
-import aiBot from "../assets/ai-bot.png"; // Replace with your image path
+import aiBot from "../assets/ai-bot.png";
 
 const Contact = () => {
   return (
     <section
       id="contact"
-      className="w-full min-h-screen text-white px-6 py-16 flex items-center justify-center"
+      className="w-full min-h-screen text-white px-6 py-10 flex items-center justify-center"
       style={{
-                  backgroundImage: `url(${aiBot})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat',
-                }}
+        backgroundImage: `url(${aiBot})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
     >
-      <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        {/* Left - Contact Form */}
-        <div>
+      <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center md:gap-20 relative">
+        
+        {/* Right Section - Contact Info */}
+        <div className="order-1 md:order-2 flex flex-col items-center justify-start text-center w-full h-full">
+          <h3 className="text-5xl font-semibold text-[#A6FFE8] mb-4 z-10">
+            Contact Info
+          </h3>
+          <p className="text-[#D4FFF3] text-2xl mb-2 z-10">+91-8471048881</p>
+          <p className="text-[#D4FFF3] text-2xl mb-2 z-10">tanmaysr019@gmail.com</p>
+          <p className="text-[#D4FFF3] text-2xl mb-6 z-10">Greater Noida, India</p>
+        </div>
+
+        {/* Left Section - Contact Form */}
+        <div className="order-2 md:order-1">
           <h2 className="text-4xl md:text-5xl font-bold text-[#73FBD3] mb-4 leading-tight">
             Let’s Build Together
           </h2>
@@ -48,18 +59,6 @@ const Contact = () => {
             </button>
           </form>
         </div>
-
-        {/* Right - Contact Info with Background Image */}
-        <div className="relative flex flex-col items-center justify-start text-center w-full h-full">
-  {/* Moved to top with justify-start instead of center */}
-  <h3 className="text-5xl font-semibold text-[#A6FFE8] mb-4 z-10">
-    Contact Info
-  </h3>
-  <p className="text-[#D4FFF3] text-2xl mb-2 z-10">+91-8471048881</p>
-  <p className="text-[#D4FFF3] text-2xl mb-2 z-10">tanmaysr019@gmail.com</p>
-  <p className="text-[#D4FFF3] text-2xl mb-6 z-10">Greater Noida, India</p>
-</div>
-
       </div>
     </section>
   );

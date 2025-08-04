@@ -20,7 +20,7 @@ app.post('/generate', async (req, res) => {
 
   try {
     console.log('✅ Received prompt:', prompt);
-    const freeModelUrl = 'https://modelviewer.dev/shared-assets/models/Astronaut.glb';
+    const freeModelUrl = 'http://localhost:5173/house.glb'; // Placeholder for free model URL
 
   return res.json({ modelUrl: freeModelUrl });
 
