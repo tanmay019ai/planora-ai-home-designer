@@ -1,0 +1,38 @@
+[
+  {
+    "type": "kitchen",
+    "position": [
+      0,
+      0,
+      0
+    ],
+    "size": "small"
+  },
+  {
+    "type": "bedroom",
+    "position": [
+      1,
+      0,
+      0
+    ],
+    "size": "medium"
+  },
+  {
+    "type": "hall",
+    "position": [
+      2,
+      0,
+      0
+    ],
+    "size": "large"
+  },
+  {
+    "type": "bathroom",
+    "position": [
+      3,
+      0,
+      0
+    ],
+    "size": "small"
+  }
+]
