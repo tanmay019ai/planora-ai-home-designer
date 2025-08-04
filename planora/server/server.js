@@ -24,57 +24,57 @@ app.post('/generate', async (req, res) => {
 
   return res.json({ modelUrl: freeModelUrl });
 
-    const headers = { 
-      Authorization: `Bearer ${MESHY_API_KEY}`,
-      'Content-Type': 'application/json'
-    };
+    // const headers = { 
+    //   Authorization: `Bearer ${MESHY_API_KEY}`,
+    //   'Content-Type': 'application/json'
+    // };
 
-    const payload = {
-      mode: 'preview',
-      prompt: prompt,
-      art_style: 'realistic',
-      should_remesh: true
-    };
+    // const payload = {
+    //   mode: 'preview',
+    //   prompt: prompt,
+    //   art_style: 'realistic',
+    //   should_remesh: true
+    // };
 
-    const response = await axios.post(
-      'https://api.meshy.ai/openapi/v2/text-to-3d',
-      payload,
-      { headers }
-    );
+    // const response = await axios.post(
+    //   'https://api.meshy.ai/openapi/v2/text-to-3d',
+    //   payload,
+    //   { headers }
+    // );
 
-    console.log('✅ Meshy API response:', response.data);
+    // console.log('✅ Meshy API response:', response.data);
 
-    const generationId = response.data?.generationId;
-    if (!generationId) {
-      return res.status(500).json({ error: 'No generationId received from Meshy' });
-    }
+    // const generationId = response.data?.generationId;
+    // if (!generationId) {
+    //   return res.status(500).json({ error: 'No generationId received from Meshy' });
+    // }
 
-    // Polling for model status
-    let modelUrl = null;
-    for (let i = 0; i < 20; i++) {
-      await new Promise(r => setTimeout(r, 5000)); // Wait 5 seconds
+    // // Polling for model status
+    // let modelUrl = null;
+    // for (let i = 0; i < 20; i++) {
+    //   await new Promise(r => setTimeout(r, 5000)); // Wait 5 seconds
 
-      const statusRes = await axios.get(
-        `https://api.meshy.ai/v1/mesh/${generationId}/status`,
-        { headers }
-      );
+    //   const statusRes = await axios.get(
+    //     `https://api.meshy.ai/v1/mesh/${generationId}/status`,
+    //     { headers }
+    //   );
 
-      const status = statusRes.data?.status;
-      console.log(`⏳ Attempt ${i + 1}: Status - ${status}`);
+    //   const status = statusRes.data?.status;
+    //   console.log(`⏳ Attempt ${i + 1}: Status - ${status}`);
 
-      if (status === 'SUCCEEDED') {
-        modelUrl = statusRes.data?.assetUrls?.gltf || statusRes.data?.assetUrls?.fbx || statusRes.data?.assetUrls?.usdz;
-        break;
-      } else if (status === 'FAILED') {
-        return res.status(500).json({ error: 'Model generation failed on Meshy' });
-      }
-    }
+    //   if (status === 'SUCCEEDED') {
+    //     modelUrl = statusRes.data?.assetUrls?.gltf || statusRes.data?.assetUrls?.fbx || statusRes.data?.assetUrls?.usdz;
+    //     break;
+    //   } else if (status === 'FAILED') {
+    //     return res.status(500).json({ error: 'Model generation failed on Meshy' });
+    //   }
+    // }
 
-    if (!modelUrl) {
-      return res.status(500).json({ error: 'Model not ready in time' });
-    }
+    // if (!modelUrl) {
+    //   return res.status(500).json({ error: 'Model not ready in time' });
+    // }
 
-    return res.json({ modelUrl });
+    // return res.json({ modelUrl });
 
   } catch (error) {
     console.error('❌ Error during model generation:', error.response?.data || error.message);
