@@ -1,0 +1,24 @@
+{
+  "id": "01987a42-127a-7060-9e7c-d8f483a70321",
+  "mode": "preview",
+  "name": "",
+  "seed": 2739967235,
+  "art_style": "realistic",
+  "texture_richness": "",
+  "prompt": "I want a small kitchen, a medium bedroom, a large hall, and a small bathroom.",
+  "negative_prompt": "",
+  "texture_prompt": "",
+  "texture_image_url": "",
+  "status": "IN_PROGRESS",
+  "created_at": 1754397807943,
+  "progress": 45,
+  "started_at": 1754397808021,
+  "finished_at": 0,
+  "task_error": null,
+  "model_urls": {
+    "glb": ""
+  },
+  "thumbnail_url": "",
+  "video_url": "",
+  "texture_urls": null
+}

@@ -1,0 +1,28 @@
+{
+  "id": "01987a42-127a-7060-9e7c-d8f483a70321",
+  "mode": "preview",
+  "name": "",
+  "seed": 2739967235,
+  "art_style": "realistic",
+  "texture_richness": "",
+  "prompt": "I want a small kitchen, a medium bedroom, a large hall, and a small bathroom.",
+  "negative_prompt": "",
+  "texture_prompt": "",
+  "texture_image_url": "",
+  "status": "SUCCEEDED",
+  "created_at": 1754397807943,
+  "progress": 100,
+  "started_at": 1754397808021,
+  "finished_at": 1754397839014,
+  "task_error": null,
+  "model_urls": {
+    "glb": "https://assets.meshy.ai/b40bb72c-5417-4adf-a060-68d7ba03abaf/tasks/01987a42-127a-7060-9e7c-d8f483a70321/output/model.glb?Expires=4907952000&Signature=BqMOGahsITVX6s9kkjDvxlqIS~4Yvt1UribbBc~7IaKCL~vy~EhZw22adDfTI-NFBUdiDgKL-W3JvgZwpVWzLe1I3Vr1MuHavKnmL8YWOdXFLWeFPvRtHDqrrv8GKnMcXsif6iL2r9bzqnhrqpdnlMfGwZuhWZ1UX~h32iwsD8htNH5Auy9e~ljfLH27Aa4Q4IxYp0-g8-zVv7RIaTjyWIx51Uzg-dQ1TZeWdN3wB8o-D8VSXHxALvAgqWvnbDRpR-ILThj4PwKLf7RY3yHzIguKPThctt5pnIQRQ88EX~mgT7LQnzksKBA8MYG1pSj4JhOwjiqS4XjBL5vO2g4mMQ__&Key-Pair-Id=KL5I0C8H7HX83",
+    "fbx": "https://assets.meshy.ai/b40bb72c-5417-4adf-a060-68d7ba03abaf/tasks/01987a42-127a-7060-9e7c-d8f483a70321/output/model.fbx?Expires=4907952000&Signature=R3v-cidpwsyDuwmmSuXpDu5Nwu1klJv3Zxsn7EBaRE1iSZVHgbgmLMiUQ-PrLSOyfwfmm1GxKxZpdaCG0OPDsQ9N5ZsFXBpn3giJWGWrSfhFCJG1eRlfCyrrvvPpdzHXKPbCVxhapbNyUbSxakxj4Fjon~9T-0sWX5dAHg~8pbQ6~82jh-hmhCx4lp6mqLmmSZdKclLtwe65aenU5ghcJfakLR9gY3uMdeZWp0nKYuC2T-zQQ4kkI4r9PYTxa5URy6mo4D9WBuYFwnYH2pW141b6Zn1KH5E788LmgpMU3ezDwgEEdsfFtLx5nGOKYS9-vhM~mGqKhZIIlXLO3hg35A__&Key-Pair-Id=KL5I0C8H7HX83",
+    "usdz": "https://assets.meshy.ai/b40bb72c-5417-4adf-a060-68d7ba03abaf/tasks/01987a42-127a-7060-9e7c-d8f483a70321/output/model.usdz?Expires=4907952000&Signature=Xjemb~HEQ4~I1IUPImI6KT316lwC15ZsRl08zC9kpMRwkhM9xeLZHH2Cl8jHkzMO7hsW02XQLMSE8jn4cN5tjYUMF0aT0EAmMyN46t7EC8bhQdn8yf4Ab3O557I6TDWShxnf9tivP1sJ-QB~OiQReBPRvDL77D59IOQQuP85K9qC2TVgrXmg2cLWHta25m7eou37EOlFZQPy~Cw-Vnz7s9mjjCRFwGM42gtlv5TXarSNLshe7KMwT9O162XQPiGaOgVkVrwTdfBEk8mtd-IewhcGFHz50JzvK2ah8CkPoMp24yPJE0WCjPrpugPO9lOfOZwqzlrzgOjABPrngzBb~Q__&Key-Pair-Id=KL5I0C8H7HX83",
+    "obj": "https://assets.meshy.ai/b40bb72c-5417-4adf-a060-68d7ba03abaf/tasks/01987a42-127a-7060-9e7c-d8f483a70321/output/model.obj?Expires=4907952000&Signature=a7DHOzf98Wb9B0uFNyA2rk4h3CLC-fvF0Bx7eH1UzNoPPZ5N8iDgEeCXdPTB3KlpqD6mo668A2PzoLeRTvvk8kRg7804MBNOU94H7FWE-Plljb5p0wOVvYaroBi5EnlgG9QnGrBchruZyfHhQfy7RyW83Egw-zIV3maoQfBTUh4wU-93KtWJ9hmn8ScJFViPUK6Q6PQXeV8GFVLneWvoYjEknqw5JsWxnA75W3kqsVjBLawyIl5hIjz-h8abkW0TYq4MheUOVz6kwiTUwp-hVWQkFH2GaZtia3Dmyda3X-pjgQjE-I-R~4Xi3ZaskYrMWrwCJrQGw6gNR2wGJkR2RA__&Key-Pair-Id=KL5I0C8H7HX83",
+    "mtl": "https://assets.meshy.ai/b40bb72c-5417-4adf-a060-68d7ba03abaf/tasks/01987a42-127a-7060-9e7c-d8f483a70321/output/model.mtl?Expires=4907952000&Signature=S9nTIZW-vAvZS~Mx0VEqWEPsmNgl57oMyY-ckmnzhiTCbdVkyTZnkKpcShyl7oViqraAXtYcNdPRXCgEVPECxW2l0pEPjYD4UNE6~v0VdfTUhmZhqI0dC7yG9uXaVAgbfXHhBE2BuKx~4GKIx5-Pk5S3NOM0er2ymuH2WMkGkTMSOvG9VhcLlXtzywAdvXOp2vWO-xq1-3Tb1Ulc4Q8aKYxP61LMPCoYELCG4CjPoOeFzkJ3EtdxTPyqI0VfYrcyg9oDEP6a~nlXCx9hkpjfIiHNczuLnXoQnOl0HkpPgWsj6Nj6~9k1NdhHpEWFuIfH9IUZoiblGwVyZzurOoxCZQ__&Key-Pair-Id=KL5I0C8H7HX83"
+  },
+  "thumbnail_url": "https://assets.meshy.ai/b40bb72c-5417-4adf-a060-68d7ba03abaf/tasks/01987a42-127a-7060-9e7c-d8f483a70321/output/preview.png?Expires=4907952000&Signature=p8qxsZh3b2YB-m34xOzteRWtKbhv2kj3~omct9pG1fsrN2fyA0clxD-XqkQnVDd0TqrkEGYjBecm5HhCfuoOUl14ME-YYwf3DAenrEVnpQ-mtHbu53gtszLfydwmyRd9IqauKrdEw-kRX42erQCd2vDvtbOzovXPn20bTlp71TbVfaJf4EiopfyZUuiCkVYNAcNf3F7qGL5SkDG6H3q0pgs4JSPmqSN~lXd~tPjQDPx2sProQPWavh7O-cJzFIbPW2-9tOHQJFkVX-jpzMgAcAWEde9NKC1W1LgRDcbgtTGigxYHHLRup24mXCDxSLyIUWaz70pklpJSwcHtXIx~YA__&Key-Pair-Id=KL5I0C8H7HX83",
+  "video_url": "https://assets.meshy.ai/b40bb72c-5417-4adf-a060-68d7ba03abaf/tasks/01987a42-127a-7060-9e7c-d8f483a70321/output/output.mp4?Expires=4907952000&Signature=WxVH2muUv9OWv8LZGXBatUqeFtitlOqtmlLR5y3eaEMhOcO28wozloKo-iTe6SLLEQQv3Ao7pYtDNHBYs1mwkqxUsvRu83Rd4Q8cW-cz4FyneAV6UM8diJ~NqNcYDT48YSM0iZle8IU4P2MQpQi~zKIUbCTZoGOMdznD1PizBPHXT5jt8vMQ83rXuKkOT6avNFgk-sQr1ZZC25j6aOtugAbB9x5rvOhkj-dl303pJrzuyz28d7zRnu0XEkF8gLiAYCh8CZj3Vmr7NQh7t1zS1uppeQ2ugqEFq8QDXIkO~yNQZA-7nNdXEJJCktxC3BhWeEneqdczKGArlUGJto0myw__&Key-Pair-Id=KL5I0C8H7HX83",
+  "texture_urls": []
+}
