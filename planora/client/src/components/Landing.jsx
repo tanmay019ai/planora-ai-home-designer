@@ -53,7 +53,7 @@ const Landing = () => {
 
     try {
       console.log('🚀 Submitting prompt:', prompt);
-      const res = await axios.post('http://localhost:5000/generate', { prompt });
+      const res = await axios.post('https://planora-ai-home-designer.onrender.com/generate', { prompt });
       const modelUrl = res.data.modelUrl;
       navigate('/result', { state: { modelUrl } });
     } catch (err) {
