@@ -84,7 +84,10 @@ app.post("/generate", async (req, res) => {
       writer.on("error", reject);
     });
 
-    const finalUrl = `http://localhost:${PORT}/models/${folderId}/model.glb`;
+    const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}`;
+    const finalUrl = `${BASE_URL}/models/${folderId}/model.glb`;
+
+
     return res.json({ modelUrl: finalUrl });
   } catch (err) {
     console.error("❌ Error:", err.message);

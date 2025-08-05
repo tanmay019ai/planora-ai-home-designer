@@ -16,6 +16,8 @@ const phrases = [
 const Landing = () => {
   const [prompt, setPrompt] = useState('');
   const [loading, setLoading] = useState(false);
+  const [loadingText, setLoadingText] = useState('🔄 Generating your model...');
+  const [subLoadingText, setSubLoadingText] = useState('Please wait while we prepare your 3D model...');
   const [placeholder, setPlaceholder] = useState('');
   const [loopIndex, setLoopIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
@@ -23,6 +25,7 @@ const Landing = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
+  // Typing animation
   useEffect(() => {
     const currentText = phrases[loopIndex % phrases.length];
     let typingSpeed = isDeleting ? 40 : 100;
@@ -47,13 +50,35 @@ const Landing = () => {
     return () => clearTimeout(timeout);
   }, [charIndex, isDeleting, loopIndex]);
 
+  // Loading messages animation
+  useEffect(() => {
+    if (!loading) return;
+
+    const messages = [
+      { main: '🔄 Generating your model...', sub: 'Please wait while we prepare your 3D model...' },
+      { main: '🛠️ Refining the design...', sub: 'Adding final touches and textures...' },
+      { main: '✨ Almost done...', sub: 'Thanks for your patience!' },
+    ];
+
+    let index = 0;
+    const interval = setInterval(() => {
+      setLoadingText(messages[index % messages.length].main);
+      setSubLoadingText(messages[index % messages.length].sub);
+      index++;
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [loading]);
+
   const handleSubmit = async () => {
     if (!prompt.trim()) return;
     setLoading(true);
 
     try {
       console.log('🚀 Submitting prompt:', prompt);
-      const res = await axios.post('https://planora-ai-home-designer.onrender.com/generate', { prompt });
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+      const res = await axios.post(`${backendUrl}/generate`, { prompt });
+
       const modelUrl = res.data.modelUrl;
       navigate('/result', { state: { modelUrl } });
     } catch (err) {
@@ -205,6 +230,17 @@ const Landing = () => {
       <Flow />
       <WhyPlanora />
       <Contact />
+
+      {/* LOADING OVERLAY */}
+      {loading && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center flex-col bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#334155] text-white text-center px-6">
+          <div className="text-2xl sm:text-3xl font-bold animate-pulse mb-3">{loadingText}</div>
+          <p className="text-base sm:text-lg opacity-70">{subLoadingText}</p>
+          <div className="mt-6">
+            <div className="w-12 h-12 border-4 border-white/20 border-t-white rounded-full animate-spin"></div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
