@@ -11,7 +11,9 @@ dotenv.config();
 const app = express();
 const PORT = 5000;
 
-app.use(cors());
+app.use(cors({
+  origin: "https://planora-ai-home-designer.vercel.app"
+}));
 app.use(express.json());
 app.use("/models", express.static(path.join(__dirname, "models")));
 
